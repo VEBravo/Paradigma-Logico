@@ -19,7 +19,7 @@ accion(messi, gol(108)).
 accion(messi, gol(23)).
 accion(messi, penal(1)).
 accion(montiel,penal(5)).
-accion(dePaul,tarjetaAmarilla(11)).
+accion(dePaul,tarjeta(amarilla,135)).
 
 /*
 Punto 2: Puntajes de las acciones
@@ -34,7 +34,8 @@ También, queremos saber cuantos puntos suma cada jugador. Es necesario que este
 puntos(atajadaPenal(Minuto),Puntos):- Puntos is 15*Minuto.
 puntos(atajada(Minuto),Puntos):- Puntos is Minuto+10.
 puntos(gol(Minuto),Puntos):- Puntos is Minuto+20.
-puntos(tarjetaAmarilla(Minuto),Puntos):- Puntos is 45-Minuto. 
+puntos(tarjeta(amarilla,_),-20).
+puntos(tarjeta(_,roja),-40).
 puntos(penal(1),45).
 puntos(penal(5),80).
 
